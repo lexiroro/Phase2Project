@@ -6,6 +6,7 @@ function Header({title, about, image="https://static.miraheze.org/greatcharacter
   <h1>{title}</h1>
   <p>{about}</p>
   <img src={image} alt="mickeymouse"/>
+  <button>Create a Wishlist</button>
    </header>
     )
 }
