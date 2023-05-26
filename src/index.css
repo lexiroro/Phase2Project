@@ -48,3 +48,21 @@ img {
   justify-content: center;
   align-items: center;
 }
+
+.navbar {
+  background-color: #1975e1;
+  padding: 10px;
+}
+
+.navbar, li {
+  list-style: none;
+  color: white;
+}
+
+.nav-links li {
+  display: inline-block;
+  padding: 0 150px;
+  margin-right: 10px;
+  font-size: 2em;
+  color: white;
+}
