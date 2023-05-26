@@ -10,7 +10,7 @@ const image = console.log(movieData.image)
 
   return (
     <div className="App">
-      <NavBar />
+      <NavBar image={image}/>
      <Header title={movieTitle} about={about} image={image}/>
     </div>
   );
