@@ -2,7 +2,7 @@ import movieData from "../data/movieData";
 
 function Wishlist() {
     return (
-        <h1></h1>
+        <h1>My Wishlist</h1>
     )
 }
 
