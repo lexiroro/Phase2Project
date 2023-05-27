@@ -54,7 +54,7 @@ img {
   padding: 10px;
 }
 
-.navbar, li {
+.navbar > li {
   list-style: none;
   color: white;
 }
@@ -89,4 +89,17 @@ button {
   height: auto;
   margin-left: 1155px;
   margin-top: -90px;
+}
+
+.movie-title {
+  color: black;
+  list-style: none;
+  font-size: 3em;
+  text-align: center;
+  font-style: italic;
+}
+
+.aristocats {
+  width: 45%;
+  height: auto;
 }
