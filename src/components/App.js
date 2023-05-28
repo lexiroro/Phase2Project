@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 // import { Route, Switch } from "react-router-dom";
 import movieData from "../data/movieData"
 import Header from "../components/Header";
@@ -8,6 +8,9 @@ import Wishlist from "./Wishlist";
 
 
 function App() {
+
+
+
 const headerTitle = movieData.name
 const about = movieData.about
 const image = console.log(movieData.image)
@@ -26,7 +29,7 @@ const moviePost = movieData.posts.map((title, index) => (
 
   return (
     <div className="App">
-      <NavBar image={image}/>
+      <NavBar image={image} />
      
         <Movies moviePost={moviePost} />
      
