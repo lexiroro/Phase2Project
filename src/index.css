@@ -84,6 +84,10 @@ button {
   margin-top: 100px;
 }
 
+.login > :hover {
+  cursor: pointer;
+}
+
 .mouse {
   width: 5%;
   height: auto;

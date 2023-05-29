@@ -1,5 +1,3 @@
-import movieData from "../data/movieData";
-
 function Movies({moviePost}) {
     return (
         <div>
