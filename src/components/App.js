@@ -9,6 +9,11 @@ import Wishlist from "./Wishlist";
 
 function App() {
 const [fetchMovies, setFetchMovies] = useState([])
+const [login, setLogin] = useState(true)
+
+function handleLogin(event) {
+  setLogin(!login)
+}
 
 useEffect(() => {
     fetch('http://localhost:3000/posts')
@@ -26,7 +31,7 @@ console.log(fetchMovies)
 
   return (
     <div className="App">
-      <NavBar image={image} />
+      <NavBar image={image} handleLogin={handleLogin} login={login} />
       <Routes>
       <Route element={ <Movies fetchMovies={fetchMovies} />}path="/movies">
         </Route>

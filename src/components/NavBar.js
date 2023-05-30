@@ -1,11 +1,7 @@
-import React, {useState} from "react"
+import React from "react"
 
-function NavBar({image="https://upload.wikimedia.org/wikipedia/commons/f/fe/Mickey_Mouse_head_and_ears.svg"}) {
-    const [login, setLogin] = useState(true)
-
-    function handleLogin(event) {
-      setLogin(!login)
-    }
+function NavBar({image="https://upload.wikimedia.org/wikipedia/commons/f/fe/Mickey_Mouse_head_and_ears.svg", handleLogin, login}) {
+  
 
     return (
         <nav className="navbar">
