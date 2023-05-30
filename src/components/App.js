@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"
-// import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import movieData from "../data/movieData"
 import Header from "../components/Header";
 import NavBar from "./NavBar";
@@ -27,13 +27,14 @@ console.log(fetchMovies)
   return (
     <div className="App">
       <NavBar image={image} />
-     
-        <Movies fetchMovies={fetchMovies} />
-     
-        <Wishlist />
-    
-      <Header title={headerTitle} about={about} image={image}/>
-   
+      <Routes>
+      <Route element={ <Movies fetchMovies={fetchMovies} />}path="/movies">
+        </Route>
+        <Route element= {  <Wishlist />} path="/mywishlist">
+        </Route>
+        <Route element={<Header title={headerTitle} about={about} image={image}/>} path="/">
+        </Route>
+        </Routes>
     </div>
   );
 }
