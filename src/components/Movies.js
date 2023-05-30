@@ -2,17 +2,19 @@ function Movies({fetchMovies}) {
 
     const moviePost = fetchMovies.map((title, index) => (
         <ul>
-        <li key={index}>{title.title}</li>
-        <li key={index}>{title.preview}</li>
-        <li key={index}>{title.cast}</li>
-        <li key={index}>{title.year}</li>
+        <li className="movie-title" key={index}>{title.title}</li>
+        <img className="movie-image" key={index} src={title.image}></img>
         <br></br>
-        <img key={index} src={title.image}></img>
+        <li className="movie-preview" key={index}>{title.preview}</li>
+        <br></br>
+        <li className="movie-cast" key={index}>Cast: {title.cast}</li>
+        <li className="movie-year" key={index}>Year Released: {title.year}</li>
         </ul>
       ));
     return (
         <div>
-        <h1>Movies</h1>
+        <h1>Explore Our Movies</h1>
+        <br></br>
         {moviePost}
         </div>
     )
