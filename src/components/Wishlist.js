@@ -1,12 +1,17 @@
-import movieData from "../data/movieData";
 import React, {useState} from "react"
+import {Autocomplete, TextField} from '@mui/material'; 
 
-function Wishlist() {
+
+
+function Wishlist({fetchMovies}) {
+
 const [inputValue, setInputValue] = useState(''); //used initially for handleChange(). Initial state is the blank space. setInput value is the value that you type in
 
 const [wishList, setWishList] = useState([]) //wishList is the space used to display your created wishlist. Initial state is an empty array and setWishlist is the value where changes are made to where there is values inside the empty array
-      
-    
+
+
+
+
 function handleChange(event) {
 const insertValue = event.target.value; 
 setInputValue(insertValue);
@@ -30,6 +35,13 @@ setWishList([...wishList, newmovie])
             <p key={index}>{movie}</p>
         ))}</section>
         <h1>Create Your Wishlist</h1>
+        <Autocomplete
+disablePortal
+id="combo-box-demo"
+options={fetchMovies}
+sx={{ width: 300 }}
+renderInput={(params) => <TextField {...params} label="Search a Movie..." />}
+/>     
         <form onSubmit={handleSubmit}>
         <input type="text" value={inputValue} placeholder="Search a movie" onChange={handleChange} />
 

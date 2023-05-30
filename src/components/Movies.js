@@ -9,6 +9,7 @@ function Movies({fetchMovies}) {
         <br></br>
         <li className="movie-cast" key={index}>Cast: {title.cast}</li>
         <li className="movie-year" key={index}>Year Released: {title.year}</li>
+        <br></br>
         </ul>
       ));
     return (
