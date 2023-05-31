@@ -10,13 +10,10 @@ const [inputValue, setInputValue] = useState(''); //used initially for handleCha
 const [wishList, setWishList] = useState([]) //wishList is the space used to display your created wishlist. Initial state is an empty array and setWishlist is the value where changes are made to where there is values inside the empty array
 
 
-
-
 function handleChange(event) {
-const insertValue = event.target.value; 
-setInputValue(insertValue);
-console.log(insertValue)
-} //this function handleChange takes in the parameter of an event. We create a variable insertValue to equal event.target.value which is what you type in. Then setInputValue takes the argument of insertValue tracking the updated changes
+const newValue = (event.target.innerHTML)
+setInputValue(newValue);
+} //this function handleChange takes in the parameter of an event. We create a variable insertValue to equal event.target.innerHTML which is what you type in. Then setInputValue takes the argument of insertValue tracking the updated changes
     
 function handleSubmit(event) {
 event.preventDefault();
@@ -26,24 +23,34 @@ setInputValue('')
 
 const addMovies = (newmovie) => {
 setWishList([...wishList, newmovie])
-} //this variable addMovies represents adding a new movie taking in a parameter of a newMovie. setWishlist updates the state using the spread operator making a copy of the current state of wishlist adding the new movie to the list
+}
+ //this variable addMovies represents adding a new movie taking in a parameter of a newMovie. setWishlist updates the state using the spread operator making a copy of the current state of wishlist adding the new movie to the list
+
+ console.log(wishList)
+
+const movieMap = fetchMovies.map(movie =>(movie.title))
 
     return (
         <div>
         <h1>My Wishlist</h1>
-        <section>{wishList.map((movie, index) => (
-            <p key={index}>{movie}</p>
-        ))}</section>
+        <div>
+        <p>{wishList.map((movie,index) => (
+        <p key={index}>{movie}</p>
+        ))}</p>
+        </div>
         <h1>Create Your Wishlist</h1>
-        <Autocomplete
-disablePortal
-id="combo-box-demo"
-options={fetchMovies}
-sx={{ width: 300 }}
-renderInput={(params) => <TextField {...params} label="Search a Movie..." />}
-/>     
+    
         <form onSubmit={handleSubmit}>
-        <input type="text" value={inputValue} placeholder="Search a movie" onChange={handleChange} />
+    
+        <Autocomplete
+        disablePortal
+        id="combo-box-demo"
+        options={movieMap}
+        value={inputValue}
+        onChange={handleChange}
+        sx={{ width: 300 }}
+      renderInput={(params) => <TextField {...params} label="Search a Movie..." />}
+        />  
 
         <button type="submit">Add to Wishlist</button>
         </form>

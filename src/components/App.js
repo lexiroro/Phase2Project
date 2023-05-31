@@ -26,7 +26,7 @@ const about = movieData.about
 const image = console.log(movieData.image)
 
 
-console.log(fetchMovies)
+console.log(movieData.posts)
 
 
   return (
