@@ -11,6 +11,7 @@ function App() {
 const [fetchMovies, setFetchMovies] = useState([])
 const [login, setLogin] = useState(true)
 
+
 function handleLogin(event) {
   setLogin(!login)
 }
@@ -21,10 +22,14 @@ useEffect(() => {
     .then (data => setFetchMovies(data))
   )}, []);
 
+const id = movieData.id
 const headerTitle = movieData.name
 const about = movieData.about
 const image = console.log(movieData.image)
 
+const onDeleteMovie = (id) => {
+  console.log(id)
+}
 
 console.log(movieData.posts)
 
@@ -35,7 +40,7 @@ console.log(movieData.posts)
       <Routes>
       <Route element={ <Movies fetchMovies={fetchMovies} />}path="/movies">
         </Route>
-        <Route element= {  <Wishlist fetchMovies={fetchMovies} />} path="/mywishlist">
+        <Route element= {  <Wishlist fetchMovies={fetchMovies} id={id} onDeleteMovie={onDeleteMovie} />} path="/mywishlist">
         </Route>
         <Route element={<Header title={headerTitle} about={about} image={image}/>} path="/">
         </Route>
@@ -45,3 +50,9 @@ console.log(movieData.posts)
 }
 
 export default App;
+
+
+//Tasks to complete: 
+//1. POST REQUEST when submitting movies
+//2. Movies to display image and title in card
+//3. State for submitted

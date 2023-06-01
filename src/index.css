@@ -145,3 +145,14 @@ button {
   padding: 0;
   top: -100px;
 }
+
+.submit {
+ margin-left: 1000px;
+ margin-right: 0 auto;
+ margin-bottom: -300px auto;
+ justify-content: center;
+}
+
+.wishlist-movie {
+  font-size: small;
+}
