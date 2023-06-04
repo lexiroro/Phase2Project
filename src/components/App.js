@@ -22,16 +22,13 @@ useEffect(() => {
     .then (data => setFetchMovies(data))
   )}, []);
 
-const id = movieData.id
+
 const headerTitle = movieData.name
 const about = movieData.about
 const image = console.log(movieData.image)
 
-const onDeleteMovie = (id) => {
-  console.log(id)
-}
 
-console.log(movieData.posts)
+console.log(fetchMovies)
 
 
   return (
@@ -40,7 +37,7 @@ console.log(movieData.posts)
       <Routes>
       <Route element={ <Movies fetchMovies={fetchMovies} />}path="/movies">
         </Route>
-        <Route element= {  <Wishlist fetchMovies={fetchMovies} id={id} onDeleteMovie={onDeleteMovie} />} path="/mywishlist">
+        <Route element= {  <Wishlist fetchMovies={fetchMovies}  />} path="/mywishlist">
         </Route>
         <Route element={<Header title={headerTitle} about={about} image={image}/>} path="/">
         </Route>
@@ -56,3 +53,5 @@ export default App;
 //1. POST REQUEST when submitting movies
 //2. Movies to display image and title in card
 //3. State for submitted
+//4. Make sure that on App, Create a Wishlist button lands to myWishlist page
+//5. Make sure the NavBar links route to the page
