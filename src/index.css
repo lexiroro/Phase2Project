@@ -156,3 +156,13 @@ button {
 .wishlist-movie {
   font-size: small;
 }
+
+.wishlist-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.wishlist-card {
+  margin-bottom: 20px;
+}

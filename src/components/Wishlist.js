@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import {Autocomplete, TextField, Card} from '@mui/material'; 
+import {Autocomplete, TextField, Card, CardMedia} from '@mui/material'; 
 
 
 
@@ -23,12 +23,17 @@ setInputValue('')
 
 
 const addMovies = (newMovie) => {
-  const movie = {
-    id: Date.now(),
-    title: newMovie
-  };
-setWishList([...wishList, movie])
-} 
+  const movie = fetchMovies.find((movie) => movie.title === newMovie);
+  if (movie) {
+    const yourmovie = {
+      id: Date.now(),
+      title: movie.title,
+      image: movie.image,
+    };
+    setWishList([...wishList, yourmovie]);
+  }
+};
+
 //this variable addMovies represents adding a new movie taking in a parameter of a newMovie. setWishlist updates the state using the spread operator making a copy of the current state of wishlist adding the new movie to the list
 
 const handleDelete = (movieId) => {
@@ -41,18 +46,27 @@ const movieMap = fetchMovies.map(movie => (movie.title))
     return (
         <div>
         <h1>My Wishlist</h1>
+        <div className="wishlist-container">
         <Card sx={{ textAlign: "center", backgroundColor: "white", width: 600, margin: '0 auto' }} variant="outlined">
-
-    <p className="wishlist-movie">
     {wishList.map((movie, index) => (
-    <p key={index}>
-      {movie.title}
-      <button className="delete" onClick={() => handleDelete(movie.id)}>X</button>
-    </p>
+    <Card key={index} className="wishlist-card">
+      <p>{movie.title}
+      <button className="delete" 
+      onClick={() => handleDelete(movie.id)}>X</button>
+      </p>
+       <CardMedia
+         component="img"
+         alt={movie.title}
+         height="50"
+         image={movie.image}
+         style={{ display: "block", margin: "0 auto" }}
+       />
+    </Card>
+   
   ))}
-</p>
-
 </Card>
+</div>
+
         <h1>Create Your Wishlist</h1>
     
         <form onSubmit={handleSubmit}>
