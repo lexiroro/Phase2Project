@@ -10,6 +10,7 @@ import Wishlist from "./Wishlist";
 function App() {
 const [fetchMovies, setFetchMovies] = useState([])
 const [login, setLogin] = useState(true)
+const [page, setPage] = useState("/")
 
 
 function handleLogin(event) {
@@ -33,7 +34,7 @@ console.log(fetchMovies)
 
   return (
     <div className="App">
-      <NavBar image={image} handleLogin={handleLogin} login={login} />
+      <NavBar onChangePage={setPage} image={image} handleLogin={handleLogin} login={login} />
       <Routes>
       <Route element={ <Movies fetchMovies={fetchMovies} />}path="/movies">
         </Route>
@@ -51,7 +52,5 @@ export default App;
 
 //Tasks to complete: 
 //1. POST REQUEST when submitting movies
-//2. Movies to display image and title in card
 //3. State for submitted
-//4. Make sure that on App, Create a Wishlist button lands to myWishlist page
-//5. Make sure the NavBar links route to the page
+

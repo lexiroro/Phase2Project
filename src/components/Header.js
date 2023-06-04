@@ -26,7 +26,7 @@ const boxDefault = {
   display="flex"
   alignItems="center"
   sx={boxDefault}>
-<Button variant="contained" color="error" sx={{ height: 50 }}>Create a Wishlist</Button>
+<Button href="/mywishlist" variant="contained" color="error" sx={{ height: 50 }}>Create a Wishlist</Button>
 </Box>
    </header>
     )
