@@ -24,6 +24,7 @@ useEffect(() => {
   )}, []);
 
 
+
 const headerTitle = movieData.name
 const about = movieData.about
 const image = console.log(movieData.image)
@@ -51,6 +52,5 @@ export default App;
 
 
 //Tasks to complete: 
-//1. POST REQUEST when submitting movies
-//3. State for submitted
+//3. State for submitted - message in wishlist section
 

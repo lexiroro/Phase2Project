@@ -10,6 +10,39 @@ const [inputValue, setInputValue] = useState(''); //used initially for handleCha
 const [wishList, setWishList] = useState([]) //wishList is the space used to display your created wishlist. Initial state is an empty array and setWishlist is the value where changes are made to where there is values inside the empty array
 
 
+const addMovies = (newMovie) => {
+  const movie = fetchMovies.find((movie) => movie.title === newMovie);
+  if (movie) {
+const handleMovie = () => {
+  fetch('http://localhost:3000/posts', {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify ({
+      "title": movie.title,
+      "image": movie.image
+    }),
+  })
+.then((res) => res.json())
+.then((data) => {
+  setWishList([...wishList, handleMovie])
+})
+}
+  }
+}
+// const addMovies = (newMovie) => {
+// const movie = fetchMovies.find((movie) => movie.title === newMovie);
+// if (movie) {
+//   const yourmovie = {
+//     id: Date.now(),
+//     title: movie.title,
+//     image: movie.image,
+//   };
+//   setWishList([...wishList, yourmovie]);
+// }
+// };
+
 function handleChange(event) {
 const newValue = (event.target.innerHTML)
 setInputValue(newValue);
@@ -21,20 +54,6 @@ addMovies(inputValue)
 setInputValue('')
 } //this function handleSubmit takes in the parameter of an event. We state event.preventDefault() so that you dont have to refresh. we use the callback addMovies taking the argument of inputValue which represents the parameter newMovie in the callback because when you add in a new movie (inputvalue) then we have setInputValue update the state which is a value of a string
 
-
-const addMovies = (newMovie) => {
-  const movie = fetchMovies.find((movie) => movie.title === newMovie);
-  if (movie) {
-    const yourmovie = {
-      id: Date.now(),
-      title: movie.title,
-      image: movie.image,
-    };
-    setWishList([...wishList, yourmovie]);
-  }
-};
-
-//this variable addMovies represents adding a new movie taking in a parameter of a newMovie. setWishlist updates the state using the spread operator making a copy of the current state of wishlist adding the new movie to the list
 
 const handleDelete = (movieId) => {
     const updatedList = wishList.filter((movie) => movie.id !== movieId);
