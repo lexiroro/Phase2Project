@@ -39,7 +39,7 @@ console.log(fetchMovies)
       <Routes>
       <Route element={ <Movies fetchMovies={fetchMovies} />}path="/movies">
         </Route>
-        <Route element= {  <Wishlist fetchMovies={fetchMovies}  />} path="/mywishlist">
+        <Route element= {  <Wishlist fetchMovies={fetchMovies} login={login}  />} path="/mywishlist">
         </Route>
         <Route element={<Header title={headerTitle} about={about} image={image}/>} path="/">
         </Route>

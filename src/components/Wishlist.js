@@ -3,7 +3,8 @@ import {Autocomplete, TextField, Card, CardMedia} from '@mui/material';
 
 
 
-function Wishlist({fetchMovies}) {
+function Wishlist({fetchMovies, login}) {
+ const {id} = fetchMovies
 
 const [inputValue, setInputValue] = useState(''); //used initially for handleChange(). Initial state is the blank space. setInput value is the value that you type in
 
@@ -47,12 +48,20 @@ const handleDelete = (movieId) => {
   };
 
 
+//  function deleteMovie(){
+//   fetch(`http://localhost:3000/posts/${id}`, {
+//     method: "DELETE",
+//  })
+//  handleDelete(id)
+// } 
+
 const movieMap = fetchMovies.map(movie => (movie.title))
     return (
         <div>
         <h1>My Wishlist</h1>
         <div className="wishlist-container">
         <Card sx={{ textAlign: "center", backgroundColor: "white", width: 600, margin: '0 auto' }} variant="outlined">
+        {login ? "Please login to view your wishlist" : null}
     {wishList.map((movie, index) => (
     <Card key={index} className="wishlist-card">
       <p>{movie.title}
@@ -81,11 +90,11 @@ id="combo-box-demo"
 options={movieMap}
 value={inputValue}
 onChange={handleChange}
-sx={{ backgroundColor: "white", width: 300, margin: '0 auto' }}
+sx={{ backgroundColor: "white", width: 200, margin: '0 auto' }}
 renderInput={(params) => <TextField {...params}  />}
 /> 
 
-        <button type="submit">Add to Wishlist</button>
+        <button className="add" type="submit">Add to Wishlist</button>
         </form>
         </div>
     )
