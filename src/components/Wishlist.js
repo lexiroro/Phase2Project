@@ -11,37 +11,17 @@ const [wishList, setWishList] = useState([]) //wishList is the space used to dis
 
 
 const addMovies = (newMovie) => {
-  const movie = fetchMovies.find((movie) => movie.title === newMovie);
-  if (movie) {
-const handleMovie = () => {
-  fetch('http://localhost:3000/posts', {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify ({
-      "title": movie.title,
-      "image": movie.image
-    }),
-  })
-.then((res) => res.json())
-.then((data) => {
-  setWishList([...wishList, handleMovie])
-})
+const movie = fetchMovies.find((movie) => movie.title === newMovie);
+if (movie) {
+  const yourmovie = {
+    id: Date.now(),
+    title: movie.title,
+    image: movie.image,
+  };
+  setWishList([...wishList, yourmovie]);
 }
-  }
 }
-// const addMovies = (newMovie) => {
-// const movie = fetchMovies.find((movie) => movie.title === newMovie);
-// if (movie) {
-//   const yourmovie = {
-//     id: Date.now(),
-//     title: movie.title,
-//     image: movie.image,
-//   };
-//   setWishList([...wishList, yourmovie]);
-// }
-// };
+
 
 function handleChange(event) {
 const newValue = (event.target.innerHTML)
@@ -50,7 +30,13 @@ setInputValue(newValue);
     
 function handleSubmit(event) {
 event.preventDefault();
-addMovies(inputValue)
+fetch("http://localhost:3000/posts", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(addMovies(inputValue)),
+})
 setInputValue('')
 } //this function handleSubmit takes in the parameter of an event. We state event.preventDefault() so that you dont have to refresh. we use the callback addMovies taking the argument of inputValue which represents the parameter newMovie in the callback because when you add in a new movie (inputvalue) then we have setInputValue update the state which is a value of a string
 
