@@ -52,5 +52,5 @@ export default App;
 
 
 //Tasks to complete: 
-//3. State for submitted - message in wishlist section
-
+//1. update minor css details 
+//2. fix db.json to incorporate delete request

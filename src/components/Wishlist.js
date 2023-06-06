@@ -48,12 +48,12 @@ const handleDelete = (movieId) => {
   };
 
 
-//  function deleteMovie(){
-//   fetch(`http://localhost:3000/posts/${id}`, {
-//     method: "DELETE",
-//  })
-//  handleDelete(id)
-// } 
+ function deleteMovie(movieId){
+  fetch('http://localhost:3000/posts/${movieId}', {
+    method: "DELETE",
+ })
+ handleDelete(movieId)
+} 
 
 const movieMap = fetchMovies.map(movie => (movie.title))
     return (
@@ -66,7 +66,7 @@ const movieMap = fetchMovies.map(movie => (movie.title))
     <Card key={index} className="wishlist-card">
       <p>{movie.title}
       <button className="delete" 
-      onClick={() => handleDelete(movie.id)}>X</button>
+      onClick={() => deleteMovie(movie.id)}>X</button>
       </p>
        <CardMedia
          component="img"
