@@ -4,7 +4,10 @@ import {Autocomplete, TextField, Card, CardMedia} from '@mui/material';
 
 
 function Wishlist({fetchMovies, login}) {
- const {id} = fetchMovies
+const movieIds = fetchMovies.map(movie => movie.id);
+console.log(movieIds)
+
+
 
 const [inputValue, setInputValue] = useState(''); //used initially for handleChange(). Initial state is the blank space. setInput value is the value that you type in
 
@@ -25,19 +28,16 @@ if (movie) {
 
 
 function handleChange(event) {
-const newValue = (event.target.innerHTML)
+const newValue = (event.target.textContent)
+//e.target.value - check on this to see the object when selecting the item, look up examples from other people
+//if doesnt work, remove autocomplete and just do a dropdown
+//wishlist key useEffect - load up data
 setInputValue(newValue);
 } //this function handleChange takes in the parameter of an event. We create a variable insertValue to equal event.target.value which is what you type in. Then setInputValue takes the argument of insertValue tracking the updated changes
     
 function handleSubmit(event) {
 event.preventDefault();
-fetch("http://localhost:3000/posts", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify(addMovies(inputValue)),
-})
+addMovies(inputValue)
 setInputValue('')
 } //this function handleSubmit takes in the parameter of an event. We state event.preventDefault() so that you dont have to refresh. we use the callback addMovies taking the argument of inputValue which represents the parameter newMovie in the callback because when you add in a new movie (inputvalue) then we have setInputValue update the state which is a value of a string
 
@@ -47,15 +47,7 @@ const handleDelete = (movieId) => {
     setWishList(updatedList);
   };
 
-
- function deleteMovie(movieId){
-  fetch('http://localhost:3000/posts/${movieId}', {
-    method: "DELETE",
- })
- handleDelete(movieId)
-} 
-
-const movieMap = fetchMovies.map(movie => (movie.title))
+const movieMap = fetchMovies.map(movie => movie.title)
     return (
         <div>
         <h1>My Wishlist</h1>
@@ -66,7 +58,7 @@ const movieMap = fetchMovies.map(movie => (movie.title))
     <Card key={index} className="wishlist-card">
       <p>{movie.title}
       <button className="delete" 
-      onClick={() => deleteMovie(movie.id)}>X</button>
+      onClick={() => handleDelete(movie.id)}>X</button>
       </p>
        <CardMedia
          component="img"
@@ -88,10 +80,9 @@ const movieMap = fetchMovies.map(movie => (movie.title))
 disablePortal
 id="combo-box-demo"
 options={movieMap}
-value={inputValue}
 onChange={handleChange}
 sx={{ backgroundColor: "white", width: 200, margin: '0 auto' }}
-renderInput={(params) => <TextField {...params}  />}
+renderInput={(params) => <TextField {...params} label="Movies" />}
 /> 
 
         <button className="add" type="submit">Add to Wishlist</button>
