@@ -53,4 +53,4 @@ export default App;
 
 //Tasks to complete: 
 //1. update minor css details 
-//2. fix db.json to incorporate delete request
+

@@ -82,10 +82,7 @@ button {
   margin-top: 50px;
   margin-bottom: auto;
   color: white;
-}
-
-.login > :hover {
-  cursor: auto;
+  cursor: pointer;
 }
 
 .mouse {
@@ -103,11 +100,18 @@ button {
   font-style: italic;
 }
 
-.movie-preview {
+.movie-paragraph {
+margin-top: 30px;
+margin-left: 450px;
+list-style: none;
+width: 45%;
+}
+
+/* .movie-preview {
   list-style: none;
   text-align: center;
   padding-top: 10px;
-}
+} */
 
 .movie-image {
   align-items: center;
@@ -116,15 +120,15 @@ button {
   padding: 0 10px
 }
 
-.movie-cast {
+/* .movie-cast {
   list-style: none;
   text-align: center;
 }
 
 .movie-year {
   list-style: none;
-  text-align: center;
-}
+  text-align: center; */
+/* } */
 
 .aristocats {
   width: 45%;
@@ -165,6 +169,6 @@ button {
 
 .add {
   margin-left: 900px;
-  margin-top: 0 -100px;
+  margin-top: 0 -290px;
   margin-bottom: 200px;
 }

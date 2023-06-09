@@ -13,32 +13,23 @@ const [inputValue, setInputValue] = useState(''); //used initially for handleCha
 
 const [wishList, setWishList] = useState([]) //wishList is the space used to display your created wishlist. Initial state is an empty array and setWishlist is the value where changes are made to where there is values inside the empty array
 
-
-const addMovies = (newMovie) => {
-const movie = fetchMovies.find((movie) => movie.title === newMovie);
-if (movie) {
-  const yourmovie = {
-    id: Date.now(),
-    title: movie.title,
-    image: movie.image,
-  };
-  setWishList([...wishList, yourmovie]);
-}
-}
-
-
 function handleChange(event) {
 const newValue = (event.target.textContent)
-//e.target.value - check on this to see the object when selecting the item, look up examples from other people
-//if doesnt work, remove autocomplete and just do a dropdown
-//wishlist key useEffect - load up data
 setInputValue(newValue);
 } //this function handleChange takes in the parameter of an event. We create a variable insertValue to equal event.target.value which is what you type in. Then setInputValue takes the argument of insertValue tracking the updated changes
     
 function handleSubmit(event) {
-event.preventDefault();
-addMovies(inputValue)
-setInputValue('')
+  event.preventDefault();
+  const movie = fetchMovies.find((movie) => movie.title === inputValue);
+  if (movie) {
+    const yourMovie = {
+      id: Date.now(),
+      title: movie.title,
+      image: movie.image,
+    };
+    setWishList([...wishList, yourMovie]);
+  }
+  setInputValue('');
 } //this function handleSubmit takes in the parameter of an event. We state event.preventDefault() so that you dont have to refresh. we use the callback addMovies taking the argument of inputValue which represents the parameter newMovie in the callback because when you add in a new movie (inputvalue) then we have setInputValue update the state which is a value of a string
 
 
@@ -81,7 +72,7 @@ disablePortal
 id="combo-box-demo"
 options={movieMap}
 onChange={handleChange}
-sx={{ backgroundColor: "white", width: 200, margin: '0 auto' }}
+sx={{ backgroundColor: "white", width: 200, margin: '0 auto', marginTop: '10px', marginRight: '100px', }}
 renderInput={(params) => <TextField {...params} label="Movies" />}
 /> 
 
