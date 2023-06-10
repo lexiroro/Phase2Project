@@ -168,7 +168,9 @@ width: 45%;
 }
 
 .add {
-  margin-left: 900px;
-  margin-top: 0 -290px;
-  margin-bottom: 200px;
+  margin-right: 400px;
+  /* margin-top: 0 -290px;
+  margin-bottom: 300px;
+  display: flex 1 ;
+  align-items: center; */
 }
