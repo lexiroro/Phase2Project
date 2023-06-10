@@ -8,8 +8,8 @@ function Movies({fetchMovies}) {
         <div className="movie-paragraph">
         <li className="movie-preview" key={index}>{title.preview}</li>
         <br></br>
-        <li className="movie-cast" key={index}><u>Cast:</u> {title.cast}</li>
-        <li className="movie-year" key={index}><u>Year Released:</u> {title.year}</li>
+        <li className="movie-cast" key={index}><b><i>Cast:</i></b> {title.cast}</li>
+        <li className="movie-year" key={index}><b><i>Year Released:</i></b> {title.year}</li>
         <br></br>
         </div>
         </ul>

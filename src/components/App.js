@@ -51,6 +51,3 @@ console.log(fetchMovies)
 export default App;
 
 
-//Tasks to complete: 
-//1. update minor css details 
-
