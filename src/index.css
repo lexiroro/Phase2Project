@@ -109,11 +109,6 @@ list-style: none;
 width: 45%;
 }
 
-/* .movie-preview {
-  list-style: none;
-  text-align: center;
-  padding-top: 10px;
-} */
 
 .movie-image {
   align-items: center;
@@ -124,15 +119,6 @@ width: 45%;
   display: flex;
 }
 
-/* .movie-cast {
-  list-style: none;
-  text-align: center;
-}
-
-.movie-year {
-  list-style: none;
-  text-align: center; */
-/* } */
 
 .aristocats {
   width: 45%;
@@ -173,8 +159,16 @@ width: 45%;
 
 .add {
   margin-right: 400px;
-  /* margin-top: 0 -290px;
-  margin-bottom: 300px;
-  display: flex 1 ;
-  align-items: center; */
+}
+
+.login-message {
+  font-size: 20px;
+}
+
+.delete {
+  background-color:white;
+  border: none;
+  margin-left: 550px;
+  position: relative;
+  top: -40px;
 }

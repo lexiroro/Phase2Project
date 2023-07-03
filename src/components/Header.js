@@ -3,7 +3,9 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 
 
-function Header({title, about, image="https://static.miraheze.org/greatcharacterswiki/thumb/5/5c/Mouse.png/600px-Mouse.png"}) {
+function Header({ title, about, image="https://static.miraheze.org/greatcharacterswiki/thumb/5/5c/Mouse.png/600px-Mouse.png"}) {
+
+
 
 const boxDefault = {
     height: 200,
@@ -16,6 +18,7 @@ const boxDefault = {
     marginTop: "-300px",
     marginRight: "300px"
 }
+
     return (
    <header>
   <h1>{title}</h1>
@@ -28,6 +31,7 @@ const boxDefault = {
   sx={boxDefault}>
 <Button href="/mywishlist" variant="contained" color="error" sx={{ height: 50 }}>Create a Wishlist</Button>
 </Box>
+
    </header>
     )
 }

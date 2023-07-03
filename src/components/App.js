@@ -7,13 +7,15 @@ import Movies from "./Movies";
 import Wishlist from "./Wishlist";
 
 
+
 function App() {
 const [fetchMovies, setFetchMovies] = useState([])
 const [login, setLogin] = useState(true)
 const [page, setPage] = useState("/")
 
 
-function handleLogin(event) {
+
+function handleLogin() {
   setLogin(!login)
 }
 
@@ -30,16 +32,13 @@ const about = movieData.about
 const image = console.log(movieData.image)
 
 
-console.log(fetchMovies)
-
-
   return (
     <div className="App">
       <NavBar onChangePage={setPage} image={image} handleLogin={handleLogin} login={login} />
       <Routes>
       <Route element={ <Movies fetchMovies={fetchMovies} />}path="/movies">
         </Route>
-        <Route element= {  <Wishlist fetchMovies={fetchMovies} login={login}  />} path="/mywishlist">
+        <Route element= { <Wishlist fetchMovies={fetchMovies} login={login}  />} path="/mywishlist">
         </Route>
         <Route element={<Header title={headerTitle} about={about} image={image}/>} path="/">
         </Route>

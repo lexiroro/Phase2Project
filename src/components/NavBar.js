@@ -14,6 +14,7 @@ function NavBar({image="https://upload.wikimedia.org/wikipedia/commons/f/fe/Mick
           
           
           <NavLink to="/movies" className="nav-links">Movies</NavLink>
+
           
           
           <NavLink to="/mywishlist" className="nav-links">My Wishlist</NavLink>
