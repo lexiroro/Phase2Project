@@ -18,7 +18,8 @@ function NavBar({image="https://upload.wikimedia.org/wikipedia/commons/f/fe/Mick
           
           
           <NavLink to="/mywishlist" className="nav-links">My Wishlist</NavLink>
-          
+
+    
         </nav>
       </nav>
     )

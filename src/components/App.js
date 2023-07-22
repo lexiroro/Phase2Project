@@ -7,7 +7,6 @@ import Movies from "./Movies";
 import Wishlist from "./Wishlist";
 
 
-
 function App() {
 const [fetchMovies, setFetchMovies] = useState([])
 const [login, setLogin] = useState(true)
@@ -21,9 +20,9 @@ function handleLogin() {
 
 useEffect(() => {
     fetch('http://localhost:3000/posts')
-    .then((res) => (res.json())
+    .then((res) => res.json())
     .then (data => setFetchMovies(data))
-  )}, []);
+  }, []);
 
 
 
@@ -36,7 +35,7 @@ const image = console.log(movieData.image)
     <div className="App">
       <NavBar onChangePage={setPage} image={image} handleLogin={handleLogin} login={login} />
       <Routes>
-      <Route element={ <Movies fetchMovies={fetchMovies} />}path="/movies">
+      <Route element={ <Movies setFetchMovies={setFetchMovies} fetchMovies={fetchMovies} />}path="/movies">
         </Route>
         <Route element= { <Wishlist fetchMovies={fetchMovies} login={login}  />} path="/mywishlist">
         </Route>

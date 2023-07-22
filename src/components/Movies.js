@@ -1,26 +1,31 @@
-function Movies({fetchMovies}) {
+import {useState} from "react"
+// import NewComponent from "./NewComponent";
 
-    const moviePost = fetchMovies.map((title, index) => (
-        <ul>
-        <li className="movie-title" key={index}>{title.title}</li>
-        <img className="movie-image" key={index} src={title.image}></img>
-        <br></br>
-        <div className="movie-paragraph">
-        <li className="movie-preview" key={index}>{title.preview}</li>
-        <br></br>
-        <li className="movie-cast" key={index}><b><i>Cast:</i></b> {title.cast}</li>
-        <li className="movie-year" key={index}><b><i>Year Released:</i></b> {title.year}</li>
-        <br></br>
-        </div>
-        </ul>
-      ));
+function Movies({fetchMovies}) {
+const [sortMovies, setSortMovies] = useState([...fetchMovies])
+
     return (
         <div>
         <h1>Explore Our Movies</h1>
         <br></br>
-        {moviePost}
+        {sortMovies.map(item => (
+            <ul>
+            <li className="movie-title" >{item.title}</li>
+            <img className="movie-image" src={item.image}></img>
+            <br></br>
+            <div className="movie-paragraph">
+            <li className="movie-preview">{item.preview}</li>
+            <br></br>
+            <li className="movie-cast" ><b><i>Cast:</i></b> {item.cast}</li>
+            <li className="movie-year"><b><i>Year Released:</i></b> {item.year}</li>
+            <br></br>
+            </div>
+            </ul>    
+        ))}
         </div>
     )
 }
 
 export default Movies
+
+
